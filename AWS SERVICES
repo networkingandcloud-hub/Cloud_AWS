@@ -1,0 +1,293 @@
+AWS SERVICES – FULL PROCEDURE DOCUMENTATION
+1. AWS EC2 (Elastic Compute Cloud)
+Definition
+
+EC2 provides virtual servers in the cloud to run applications.
+
+Steps to Create EC2 Instance
+
+Login to AWS Console
+
+Open EC2
+
+Click Launch Instance
+
+Enter Name:
+
+MyEC2
+
+
+Choose AMI:
+
+Amazon Linux / Ubuntu / Windows
+
+
+Instance Type:
+
+t2.micro
+
+
+Create or select Key Pair
+
+Configure Security Group:
+
+SSH 22
+HTTP 80
+HTTPS 443
+
+
+Click Launch Instance
+
+Connect to EC2
+ssh -i key.pem ec2-user@Public-IP
+
+2. AWS S3 (Simple Storage Service)
+Definition
+
+S3 is object storage for files, backups, and static websites.
+
+Steps to Create S3 Bucket
+
+Open S3
+
+Click Create Bucket
+
+Bucket Name:
+
+mybucket123
+
+
+Region:
+
+ap-south-1
+
+
+Click Create Bucket
+
+Upload File
+
+Open bucket
+
+Click Upload
+
+Select file
+
+Click Upload
+
+Enable Static Website Hosting
+
+Open bucket → Properties
+
+Enable Static Website Hosting
+
+Index document:
+
+index.html
+
+3. Elastic Load Balancer (ELB)
+Definition
+
+Distributes traffic across multiple EC2 instances.
+
+Steps to Create Load Balancer
+
+Open EC2
+
+Click Load Balancers
+
+Click Create Load Balancer
+
+Choose:
+
+Application Load Balancer
+
+
+Enter Name:
+
+MyALB
+
+
+Select VPC and Subnets
+
+Create Target Group
+
+Register EC2 instances
+
+Click Create
+
+4. Elastic Block Store (EBS)
+Definition
+
+EBS provides block storage for EC2.
+
+Steps to Create EBS Volume
+
+Open EC2
+
+Click Volumes
+
+Click Create Volume
+
+Select:
+
+gp3
+
+
+Select Availability Zone
+
+Click Create Volume
+
+Attach EBS to EC2
+
+Select Volume
+
+Click Attach Volume
+
+Select EC2 instance
+
+Mount EBS (Linux)
+lsblk
+sudo mkfs.ext4 /dev/xvdf
+sudo mkdir /data
+sudo mount /dev/xvdf /data
+
+5. Auto Scaling
+Definition
+
+Automatically increases or decreases EC2 instances based on load.
+
+Steps to Configure Auto Scaling
+
+Create Launch Template
+
+Open Auto Scaling Groups
+
+Click Create Auto Scaling Group
+
+Select Launch Template
+
+Set:
+
+Min: 1
+Desired: 2
+Max: 4
+
+
+Attach Load Balancer
+
+Create Scaling Policy
+
+Click Create
+
+6. AWS Lambda
+Definition
+
+Serverless compute service to run code without managing servers.
+
+Steps to Create Lambda Function
+
+Open Lambda
+
+Click Create Function
+
+Choose:
+
+Author from scratch
+
+
+Function Name:
+
+MyLambda
+
+
+Runtime:
+
+Python 3.x
+
+
+Click Create
+
+Sample Lambda Code
+def lambda_handler(event, context):
+    return "Hello from Lambda"
+
+7. AWS Lightsail
+Definition
+
+Simplified cloud service for small applications.
+
+Steps to Create Lightsail Instance
+
+Open Lightsail
+
+Click Create Instance
+
+Select OS:
+
+Linux / Windows
+
+
+Choose Plan
+
+Enter Instance Name
+
+Click Create Instance
+
+8. Amazon CloudWatch
+Definition
+
+Monitors AWS resources and applications.
+
+CloudWatch Features
+
+Metrics
+
+Logs
+
+Alarms
+
+Dashboards
+
+Create CloudWatch Alarm
+
+Open CloudWatch
+
+Click Alarms
+
+Click Create Alarm
+
+Select Metric:
+
+EC2 CPU Utilization
+
+
+Set Threshold:
+
+CPU > 70%
+
+
+Set Notification
+
+Create Alarm
+
+View Logs
+
+Open CloudWatch
+
+Click Logs
+
+Select Log Group
+
+Summary Table
+Service	Purpose
+EC2	Virtual server
+S3	Object storage
+ELB	Traffic distribution
+EBS	Block storage
+Auto Scaling	Automatic scaling
+Lambda	Serverless compute
+Lightsail	Simple cloud
+CloudWatch	Monitoring
+Conclusion
+
+All major AWS core services are successfully explained with procedures.
